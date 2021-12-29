@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/
+    font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <style>
+        .head{
+            position: fixed;
+            background-color: orange;
+            height: 3em;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-bottom: black;
+        }
+        .cs1{
+            float: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+            top: 0;
+            color: black;
+        }
+        .menu4 {
+            float: right;
+            right: 2px;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        .menubar {
+            position: fixed;
+            display: none;
+            height: 100%;
+            background-color: orange;
+            left: 0;
+            top: 3em;
+            width: 80%;
+            animation-direction: normal;
+            animation-delay: 2s;
+        }
+        a {
+            color: inherit;
+        }
+        body {
+    background: #F4F8F9;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+input#menu {
+    display: none;
+}
+
+.icon {
+    background: #FFF;
+    cursor: pointer;
+    display: block;
+    height: 1em;
+    padding: 16px;
+    width: 24px;
+    right: 0;
+    top: 0;
+    background-color: orange;
+}
+
+label.icon {
+    position: fixed;
+    z-index: 200;
+}
+
+.icon .menu,
+.icon .menu::before,
+.icon .menu::after {
+    background: #9FB1BD;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: background ease .3s, top ease .3s .3s, transform ease .3s;
+    width: 20px;
+}
+
+.icon:hover .menu,
+.icon:hover .menu::before,
+.icon:hover .menu::after {
+    background: #47B74B;
+}
+
+.icon .menu {
+    left: 18px;
+    top: 27px;
+}
+
+.icon .menu::before {
+    top: -6px;
+}
+
+.icon .menu::after {
+    top: 6px;
+}
+
+#menu:checked + .icon .menu {
+    background: transparent;
+}
+
+#menu:checked + .icon .menu::before {
+    transform: rotate(45deg);
+}
+
+#menu:checked + .icon .menu::after {
+    transform: rotate(-45deg);
+}
+
+#menu:checked + .icon .menu::before,
+#menu:checked + .icon .menu::after {
+    top: 0;
+    transition: top ease .3s, transform ease .3s .3s;
+}
+
+nav {
+    background: #FFF;
+	flex-direction: column;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    height: 100%;
+    padding-top: 60px;
+    position: fixed;
+    transition: width ease .6s;
+    width: 0px;
+    z-index: 100;
+    right: 0;
+    top: 3em;
+    background-color: orange;
+    overflow: scroll;
+}
+
+#menu:checked ~ nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    cursor: pointer;
+    display: block;
+    /* line-height: 260px; */
+    padding-left: 16px;
+    white-space: nowrap;
+}
+nav h1 {
+    width: 14px;
+    top: 0;
+    padding-top: 2px;
+}
+nav i {
+    color: black;
+    margin-right: 24px;
+    vertical-align: text-bottom;
+    width: 14px;
+	padding-top: 2px;
+}
+#white_content {
+	display: none;
+	position: fixed;
+  top: 8%;
+  right: 2px;
+	left: 0;
+  bottom: 9%;
+	width: 100%;
+	height: 85%;
+    background-color: white;
+	z-index:1002;
+	overflow: auto;
+  border-top: 5px;
+  border-radius: 12px;
+  border-bottom: 0px;
+  border-right: 5px;
+}
+#font {
+    font-size: 100px bolder;
+}
+#close{
+    display: none;
+    position: fixed;
+    float: right;
+    top: 0;
+    right: 0;
+    color: white;
+    width: 19%;
+    height: 5%;
+    border-radius: 100px;
+}
+.container {
+        height: 12rem;
+		background-image: url('image.jpeg');
+		background-attachment: local;
+		right: 12%;
+        width: 75%;
+		position: absolute;
+		float: right;
+		bottom: 22%;
+		/* backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 spx 15px rgba(121, 86, 86, 0.7); */
+        text-align: center;
+        /* padding-top: 12px; */
+        border-radius: 16px;
+        border: 2px solid rgb(14, 43, 1);
+      }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news</title>
+</head>
+<body>
+    <div class="head">
+        <span class="cs1"><a href="javascript:void(0)" onclick="document.getElementById('white_content').style.display='none'">NewsV</a></span>
+        <span class="menu4" id="menu4"><a href="javascript:void(0)" onclick="document.getElementById('menubar').style.display='block'">=</a></span>
+    </div>
+        <div class="hh1">
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- <div class="menubar" id="menubar">
+                <h1><a href="#">HOME</a></h1>
+                    <h1><a href="#">CATEGORY</a></h1>
+                        <h1><a href="#">ABOUT US1</a></h1>
+                            <h1><a href="#">featured</a></h1> -->
+                            <input type="checkbox" id="menu">
+<label for="menu" class="icon">
+        <div class="menu"></div>
+ </label>
+
+<nav>
+    <ul>
+        <li>
+            <h1><i style="float: left;" id="fa" class="fa fa-home"><a href="#">HOME</a></i>
+                </h1>
+        </li>
+        <li>
+            <h1 id="catagory"><a href="#"><i style="float: left;" id="fa" class="fa fa-list">
+                CATEGORY</a></i>
+            </h1>
+        </li>
+        <li>
+            <h1><a href="#"><i style="float: left;" id="fa" class="fa fa-info">
+                ABOUT US!</i></a></h1>
+        </li>
+<h3 style="float: right;"><a href="#"><i style="float: right;width: 10px;height: 10px;" id="fa" class="fab fa-facebook-f"></i></a></h1>
+			<h3 style="float: right;"><a href="#"><i style="float: right;width: 10px;height: 10px;" id="fa" class="fab fa-instagram"></i></a></h1>
+
+			<h3 style="float: right;"><a href="#"><i style="float: right;width: 10px;height: 10px;" id="fa" class="fab fa-twitter"></i></a></h1>
+
+    </ul>
+	<div class="container">
+		<div class="icon2">---</div>
+		<div class="temp">-°C</div>
+		<div class="summary">----</div>
+		<div class="location"></div>
+	  </div>
+</nav>
+</div>
+<iframe src="https://zeenews.india.com/people/leaked-vicky-kaushal-and-sara-ali-khans-first-look-from-their-next-film-goes-viral-2423418.html" id="white_content"></iframe>
+            <div class="field-item even"><p><strong>New Delhi:&nbsp;</strong>Chief Minister Arvind Kejriwal on Tuesday (December 28, 2021) announced that a yellow alert has been sounded in Delhi under the Graded Response Action Plan (GRAP).</p>
+                <p data-min-tv-running="true">He said that step was taken as the <a href="https://zeenews.india.com/india/breaking-yellow-alert-sounded-in-delhi-due-to-rising-covid-19-cases-announces-cm-arvind-kejriwal-2423318.html" target="_blank">COVID-19 positivity rate has been above 0.5%</a> for the past few days in the national capital.&nbsp;</p><div class="editor-tv-wrapper editor-tv-active" style="max-width: 360px; margin: 20px auto; display: block;"><h2 class="editor-tv-title margin-bt10px">Also Watch</h2><div class="editor-tv-component"><div id="minute-size-container" style="width: 100%; position: relative; padding-bottom: calc(75%);"><iframe src="about:blank" frameborder="0" scrolling="no" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;"></iframe></div></div></div>
+                <p></p><div class="block margin-bt30px adATF" style="height: auto; width: 300px; margin: auto; padding-bottom: 20px; display: block;"><div id="div-gpt-ad-AS-Inarticle-1"><div id="google_ads_iframe_/11440465/Zeenews_English_Web/Zeenews_English_AS_Inarticle_1_300x250_0__container__" style="border: 0pt none; width: 300px; height: 0px;"></div></div></div><p>In view of this, cinema halls and multiplexes have been shut till further orders.&nbsp;</p>
+                <h2>Here's what's open and closed due to 'Yellow' alert in Delhi</h2>
+                <p>Shops in malls and shopping complexes will open based on an odd-even formula from 10 AM to 8 PM.</p>
+                <p></p><div class="block margin-bt30px adATF" style="height: auto; width: 300px; margin: auto; padding-bottom: 20px; display: block;"><div id="div-gpt-ad-AS-Inarticle-2"><div id="google_ads_iframe_/11440465/Zeenews_English_Web/Zeenews_English_AS_Inarticle_2_300x250_0__container__" style="border: 0pt none; width: 300px; height: 0px;"></div></div></div><p>Only one weekly market per zone with 50 per cent of vendors will be allowed to open.</p>
+                <p>Restaurants can function with 50 per cent capacity from 8 am to 10 pm.</p>
+                <p></p><div id="taboola-mid-article-thumbnails" class=" trc_related_container trc_spotlight_widget"><div class="trc_rbox_container" style="display: none;"><div><div id="trc_wrapper_98029" class="trc_rbox thumbnails-m" style="overflow: hidden; display: none;"></div></div></div></div><p>Bars can also operate with 50 per cent&nbsp;capacity from 12 noon to 10 pm.</p>
+                <p>Cinema halls, banquet halls, spas, gyms, outdoor yoga activity, amusement parks, stadia, swimming pools, schools, colleges and educational institutions are not allowed to function.</p>
+                <p>Private offices can function with up to 50 per cent of the staff.</p>
+                <p><a href="https://zeenews.india.com/live-tv"><b>Live TV</b></a></p>
+                <!-- <p><iframe src="https://zeenews.india.com/live-tv/embed#mute" width="100%" height="400px" style="border:none;" allowfullscreen="" allow="autoplay; fullscreen" mozallowfullscreen="" webkitallowfullscreen="" scrolling="no"></iframe></p> -->
+                </div>
+                <div class="mini-list-story clearfix" data-min-enable="all" data-min-method="true">
+      
+                    <div class="m-img-block">
+                                           <a href="javascript:void(0)" onclick="document.getElementById('white_content').style.display='block';document.getElementById('close').style.display='block'" >
+                                         <img data-qazy="false" class="img-responsive" src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_175x100/public/2021/12/28/1000312-untitled-design-2021-12-28t173416.425.jpg" width="175" height="100" alt="LEAKED! Vicky Kaushal and Sara Ali Khan&amp;#039;s first look from their next film goes viral" title="LEAKED! Vicky Kaushal and Sara Ali Khan&amp;#039;s first look from their next film goes viral">  </a>
+                                        
+                                         
+                                           </div>
+                                           <div class="mini-con">
+                                             <h3><a href="javascript:void(0)" onclick="document.getElementById('white_content').style.display='block';document.getElementById('close').style.display='block'"">LEAKED! Vicky Kaushal and Sara Ali Khan's first look from their next film goes viral
+         </a></h3>
+                                             <span class="m-line"></span>
+                                           </div>    </div>
+<a id="font" href="javascript:void(0)" onclick="document.getElementById('white_content').style.display='none'" ><p id="close">X</p></a>
+
+</body>
+<script>
+	// Declaring the variables
+let lon;
+let lat;
+let temperature = document.querySelector(".temp");
+let summary = document.querySelector(".summary");
+let loc = document.querySelector(".location");
+let icon2 = document.querySelector(".icon2");
+const kelvin = 273;
+
+window.addEventListener("load", () => {
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition((position) => {
+	console.log(position);
+	lon = position.coords.longitude;
+	lat = position.coords.latitude;
+
+	// API ID
+	const api = "6d055e39ee237af35ca066f35474e9df";
+
+	// API URL
+	const base =
+`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&` +
+`lon=${lon}&appid=6d055e39ee237af35ca066f35474e9df`;
+
+	// Calling the API
+	fetch(base)
+		.then((response) => {
+		return response.json();
+		})
+		.then((data) => {
+		console.log(data);
+		temperature.textContent =
+			Math.floor(data.main.temp - kelvin) + "°C";
+		summary.textContent = data.weather[0].description;
+		loc.textContent = data.name + "," + data.sys.country;
+		let icon1 = data.weather[0].icon2;
+		icon2.innerHTML =
+			`<img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" style= 'height:8rem'/>`;
+		});
+	});
+}
+});
+</script>
+</html>
